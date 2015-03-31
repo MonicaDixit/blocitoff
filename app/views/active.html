@@ -1,0 +1,47 @@
+  <div class="container" style="border: solid 1px black;max-width: 660px; padding: 0px">
+    <div class="row-fluid" style="padding:5px;background-color:#DDDDDD">
+      <div style="font-weight:bold;font-size:18px;padding-bottom:20px;line-height:40px">
+        Current Tasks
+      </div>
+    </div> 
+    <div class="row-fluid" style="background-color: #f0f0f0; height:40px;padding-top:10px;font-weight:bold">
+      <div class="col-md-5">Tasks</div>
+      <div class="col-md-3">Priority</div>
+      <div class="col-md-4">Category</div>
+    </div>
+    <div class="row-fluid" style="background-color: white; height:50px;margin- bottom:10px;padding:10px 0px 10px 10px">
+      <form class="form-inline">
+        <input type="text" class="form-control" placeholder="Enter New Task" style="border:none;width:40%;height:100%" ng-model="newtask" autofocus>
+        &nbsp;&nbsp;&nbsp;
+        <label for="Priority"></label>
+        <select class="form-control" ng-model="priority">
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select class="form-control">
+          <option>work</option>
+          <option>Home</option>
+          <option>Kidie</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="submit" class="btn" ng-click="addTask()" style="margin:0px">Add</button>
+     </form>  
+    </div>
+    <!-- <div class="list-group-item" ng-repeat="(id,todo) in todolist | todoFilter"> -->
+    <div class="list-group-item" ng-repeat="todo in todolist" ng-show="!todo.isDone">
+      <div class="row">
+        <div class="col-md-6">
+          {{todo.taskname}}
+        </div>
+        <div class="col-md-3">
+          {{todo.priority}}
+        </div>
+        <div class="col-md-3">
+          {{todo.date}}
+        </div>
+        <button class="btn" ng-click="deleteTask($index)">Delete</button>
+        <input type="checkbox" ng-model="todo.isDone"  ng-change="updateTask(todo)">
+      </div>
+</div>
