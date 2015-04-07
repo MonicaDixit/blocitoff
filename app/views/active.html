@@ -11,16 +11,19 @@
     </div>
     <div class="row-fluid" style="background-color: white; height:50px;margin- bottom:10px;padding:10px 0px 10px 10px">
       <form class="form-inline">
-        <input type="text" class="form-control" placeholder="Enter New Task" style="border:none;width:40%;height:100%" ng-model="newtask" autofocus>
+        <input type="text" class="form-control" placeholder="Enter New Task" style="border:none;width:35%;height:100%" ng-model="newtask" autofocus>
         &nbsp;&nbsp;&nbsp;
         <label for="Priority"></label>
         <select class="form-control" ng-model="priority">
+          <option></option>
           <option>High</option>
           <option>Medium</option>
           <option>Low</option>
         </select>
+        <i class="fa fa-sort-amount-desc" ng-click="predicate = 'intPriority';reverse=false"></i> 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <select class="form-control">
+        <select class="form-control" ng-model="category">
+          <option></option>
           <option>work</option>
           <option>Home</option>
           <option>Kidie</option>
@@ -30,18 +33,20 @@
      </form>  
     </div>
     <!-- <div class="list-group-item" ng-repeat="(id,todo) in todolist | todoFilter"> -->
-    <div class="list-group-item" ng-repeat="todo in todolist" ng-show="!todo.isDone">
+    <div class="list-group-item" ng-repeat="todo in todolist | orderBy:predicate:reverse | filter:priority | filter:category" 
+       ng-show="!todo.isDone">
+
       <div class="row">
         <div class="col-md-6">
           {{todo.taskname}}
         </div>
-        <div class="col-md-3">
+        <div class="col-md-5">
           {{todo.priority}}
         </div>
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
           {{todo.date}}
         </div>
-        <button class="btn" ng-click="deleteTask($index)">Delete</button>
+        <button class="btn" ng-click="deleteTask($index)">Delete</button> -->
         <input type="checkbox" ng-model="todo.isDone"  ng-change="updateTask(todo)">
       </div>
 </div>

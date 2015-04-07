@@ -5,7 +5,8 @@
       </div>
     </div> 
     
-    <div class="list-group-item" ng-repeat="(id,todo) in expireTask ">
+    <div class="list-group-item" ng-repeat="todo in todolist" 
+       ng-show="!todo.isActive">
       <div class="row">
         <div class="col-md-12">
           {{todo.taskname}}

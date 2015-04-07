@@ -52,19 +52,19 @@ angular.module('blocitoffApp')
       return $routeProvider;
     };
   }])
+  //configure views; the authRequired parameter is used for specifying pages
+  //which should only be available while logged in
+   .config(['$routeProvider', function($routeProvider) {
 
-  // configure views; the authRequired parameter is used for specifying pages
-  // which should only be available while logged in
-  .config(['$routeProvider', function($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+      .when('/active', {
+        templateUrl: 'views/active.html',
+        controller: 'Active.controller',
       })
 
       .when('/login', {
         templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
       })
 
       .when('/chat', {
@@ -77,12 +77,18 @@ angular.module('blocitoffApp')
         controller: 'AccountCtrl'
       })
 
-      .when('/chat', {
-        templateUrl: 'views/chat.html',
-        controller: 'ChatCtrl'
+      .when('/inactive', {
+        templateUrl: 'views/inactive.html',
+        controller: 'Active.controller'
       })
-      .otherwise({redirectTo: '/'});
+
+      .when('/history', {
+        templateUrl: 'views/history.html',
+        controller: 'Active.controller'
+      });
+      //.otherwise({redirectTo: '/active'});
   }])
+
 
   /**
    * Apply some route security. Any route's resolve method can reject the promise with
@@ -94,14 +100,18 @@ angular.module('blocitoffApp')
     function($rootScope, $location, simpleLogin, SECURED_ROUTES, loginRedirectPath) {
       // watch for login status changes and redirect if appropriate
       simpleLogin.watch(check, $rootScope);
-
       // some of our routes may reject resolve promises with the special {authRequired: true} error
       // this redirects to the login page whenever that is encountered
       $rootScope.$on('$routeChangeError', function(e, next, prev, err) {
         if( angular.isObject(err) && err.authRequired ) {
           $location.path(loginRedirectPath);
         }
+        //console.log(e, next, prev, err);
       });
+
+      // $rooteScope.$on('$routeChangeSuccess', function(ev, data) {
+      //   console.log(data.controller);
+      // });
 
       function check(user) {
         if( !user && authRequired($location.path()) ) {
