@@ -58,32 +58,32 @@ angular.module('blocitoffApp')
 
     $routeProvider
       .when('/active', {
-        templateUrl: 'views/active.html',
+        templateUrl: '/views/active.html',
         controller: 'Active.controller',
       })
 
       .when('/login', {
-        templateUrl: 'views/login.html',
+        templateUrl: '/views/login.html',
         controller: 'LoginCtrl',
       })
 
       .when('/chat', {
-        templateUrl: 'views/chat.html',
+        templateUrl: '/views/chat.html',
         controller: 'ChatCtrl'
       })
 
       .whenAuthenticated('/account', {
-        templateUrl: 'views/account.html',
+        templateUrl: '/views/account.html',
         controller: 'AccountCtrl'
       })
 
       .when('/inactive', {
-        templateUrl: 'views/inactive.html',
+        templateUrl: '/views/inactive.html',
         controller: 'Active.controller'
       })
 
       .when('/history', {
-        templateUrl: 'views/history.html',
+        templateUrl: '/views/history.html',
         controller: 'Active.controller'
       });
       //.otherwise({redirectTo: '/active'});
