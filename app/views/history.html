@@ -1,10 +1,5 @@
   <div class="container" style="border: solid 1px black;max-width: 600px; padding: 0px">
-    <div class="row-fluid" style="padding:5px;background-color:#DDDDDD">
-      <div style="font-weight:bold;font-size:18px;padding-bottom:20px;line-height:40px">
-        Task History
-      </div>
-    </div> 
-    
+    <task-header header = "{{historyHeader}}"></task-header>
     <div class="list-group-item" ng-repeat="(id,todo) in todolist | todoFilter">
       <div class="row">
         <div class="col-md-12 done">

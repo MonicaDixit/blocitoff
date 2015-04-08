@@ -71,8 +71,11 @@ console.log('got to app.js');
 
 
     $scope.title = "Current tasks";
-    $scope.description= "Task Description";
-    $scope.priorityLabel= "Priority" ;
+    $scope.description = "Task Description";
+    $scope.priorityLabel = "Priority" ;
+    $scope.activeHeader = "Active Tasks";
+    $scope.historyHeader = "Task History";
+    $scope.inactiveHeader = "Expired Tasks";
 
     $scope.filters = {};
     var now = moment().format("MM-DD-YYYY");
@@ -148,7 +151,7 @@ console.log('got to app.js');
         var days = now.diff(then, 'days');
         console.log(days);
 
-        if (days < 7){
+        if (days > 7){
           todo.isActive = false;
         }
     });
