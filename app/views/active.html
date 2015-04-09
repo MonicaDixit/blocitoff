@@ -33,7 +33,7 @@
      </form>  
     </div>
     <!-- <div class="list-group-item" ng-repeat="(id,todo) in todolist | todoFilter"> -->
-    <div class="list-group-item" ng-repeat="todo in todolist | orderBy:predicate:reverse | filter:priority | filter:category" 
+    <div class="list-group-item" ng-repeat="todo in todolist | orderBy:predicate:reverse " 
        ng-show="!todo.isDone">
 
       <div class="row">
@@ -43,10 +43,6 @@
         <div class="col-md-5">
           {{todo.priority}}
         </div>
-        <!-- <div class="col-md-3">
-          {{todo.date}}
-        </div>
-        <button class="btn" ng-click="deleteTask($index)">Delete</button> -->
         <input type="checkbox" ng-model="todo.isDone"  ng-change="updateTask(todo)">
       </div>
 </div>

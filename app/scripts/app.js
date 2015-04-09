@@ -68,6 +68,7 @@ var blocitoffApp = angular.module('blocitoffApp', [
         }
 
         TodoService.addTask(newTaskRow);
+        $scope.todolist = TodoService.getTasks();
 
         $scope.newtask = " ";
         $scope.priority = " ";
