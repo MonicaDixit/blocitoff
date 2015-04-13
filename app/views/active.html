@@ -6,8 +6,16 @@
     </div> 
     <div class="row-fluid" style="background-color: #f0f0f0; height:40px;padding-top:10px;font-weight:bold">
       <div class="col-md-5">Tasks</div>
-      <div class="col-md-3">Priority</div>
-      <div class="col-md-4">Category</div>
+      <div class="col-md-3">Priority
+        <i class="fa fa-filter" 
+          ng-click="sortCurrentPriority(priority)">
+        </i>
+      </div>
+      <div class="col-md-4">Category
+        <i class="fa fa-filter" 
+          ng-click = "sortCurrentCategory(category)">
+        </i>
+      </div>
     </div>
     <div class="row-fluid" style="background-color: white; height:50px;margin- bottom:10px;padding:10px 0px 10px 10px">
       <form class="form-inline">
@@ -33,7 +41,7 @@
      </form>  
     </div>
     <!-- <div class="list-group-item" ng-repeat="(id,todo) in todolist | todoFilter"> -->
-    <div class="list-group-item" ng-repeat="todo in todolist | orderBy:predicate:reverse | filter:priority | filter:category" 
+    <div class="list-group-item" ng-repeat="todo in todolist | orderBy:predicate:reverse | filter:currentCategory | filter:currentPriority " 
        ng-show="!todo.isDone">
 
       <div class="row">

@@ -33,7 +33,15 @@ var blocitoffApp = angular.module('blocitoffApp', [
     $scope.historyHeader = "Task History";
     $scope.inactiveHeader = "Expired Tasks";
 
-    $scope.filters = {};
+    $scope.sortCurrentCategory = function(category){
+      $scope.currentCategory = $scope.category;
+    }
+
+
+    $scope.sortCurrentPriority = function(priority){
+      $scope.currentPriority = $scope.priority;
+    }
+
     var now = moment().format("MM-DD-YYYY");
     console.log(now);
 
