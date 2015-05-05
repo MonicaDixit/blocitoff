@@ -1,6 +1,6 @@
   <div class="container" style="border: solid 1px black;max-width: 600px; padding: 0px">
     <task-header header = "{{historyHeader}}"></task-header>
-    <div class="list-group-item" ng-repeat="(id,todo) in todolist | todoFilter">
+    <div class="list-group-item" ng-show="todo.user === user.uid" ng-repeat="(id,todo) in todolist | todoFilter track by id">
       <div class="row">
         <div class="col-md-12 done">
           {{todo.taskname}}

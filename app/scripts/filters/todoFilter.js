@@ -6,6 +6,7 @@ angular.module('blocitoffApp')
     angular.forEach(input, function(todo,id){
       var path = $location.path();
       if(path === '/active'){
+        console.log('todo.uid' + todo.user)
         if (!todo.isDone){
             filtered[id] = todo;
         }

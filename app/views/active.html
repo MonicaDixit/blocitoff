@@ -42,7 +42,7 @@
     </div>
     <!-- <div class="list-group-item" ng-repeat="(id,todo) in todolist | todoFilter"> -->
     <div class="list-group-item" ng-repeat="todo in todolist | orderBy:predicate:reverse | filter:currentCategory | filter:currentPriority " 
-       ng-show="!todo.isDone">
+       ng-show="!todo.isDone && todo.user === user.uid">
 
       <div class="row">
         <div class="col-md-6">

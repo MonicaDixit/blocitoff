@@ -22,9 +22,11 @@ var blocitoffApp = angular.module('blocitoffApp', [
 
 // blocitoffApp.constant('FIREBASE_URI' , 'https://intense-heat-425.firebaseio.com/');
 
- blocitoffApp.controller('Active.controller' , ['$scope', 'TodoService', 
-    function($scope,TodoService){
+ blocitoffApp.controller('Active.controller' , ['$scope', 'TodoService','User',
+    function($scope,TodoService, User){
 
+
+   
 
     $scope.title = "Current tasks";
     $scope.description = "Task Description";
@@ -47,12 +49,18 @@ var blocitoffApp = angular.module('blocitoffApp', [
 
     $scope.createdate = now;
     
-    $scope.todolist = TodoService.getTasks();
+    $scope.todolist = TodoService.getTasks(User);
     console.log($scope.todolist);
 
     $scope.addTask = function(){
 
       var intPriority;
+      var ref = new Firebase("https://intense-heat-425.firebaseio.com/");
+      var authData = ref.getAuth().uid;
+      console.log('User from app' + User);
+      //var ref = new Firebase("https://intense-heat-425.firebaseio.com/tasks");
+
+   console.log('authData' + authData);
 
         if ($scope.priority === 'High'){
           intPriority = 1;
@@ -66,7 +74,9 @@ var blocitoffApp = angular.module('blocitoffApp', [
         else{
           intPriority = 3;
         }
-        var newTaskRow = {taskname:$scope.newtask, 
+        var newTaskRow = {
+            user: authData,
+            taskname:$scope.newtask, 
             priority:$scope.priority,
             date:now,
             isActive:true,
