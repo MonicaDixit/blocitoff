@@ -90,8 +90,8 @@ angular.module('blocitoffApp')
       .when('/history', {
         templateUrl: '/views/history.html',
         controller: 'Active.controller'
-      });
-      //.otherwise({redirectTo: '/active'});
+      })
+      .otherwise({redirectTo: '/index'});
   }])
 
 

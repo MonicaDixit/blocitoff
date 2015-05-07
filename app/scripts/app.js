@@ -17,7 +17,8 @@ var blocitoffApp = angular.module('blocitoffApp', [
     'ngTouch',
     'firebase',
     'firebase.utils',
-    'simpleLogin'
+    'simpleLogin',
+    'ui.bootstrap'
   ]);
 
 // blocitoffApp.constant('FIREBASE_URI' , 'https://intense-heat-425.firebaseio.com/');

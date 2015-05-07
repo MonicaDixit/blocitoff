@@ -12,8 +12,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 /* Space out content a bit */
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
+  background: url("/images/todo1.jpg");
+  background-position: center;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -67,13 +68,18 @@ body {
   width:500px;
 }
 
-.header{
-  height:40px;
-  margin:0px;
-  background:#A1A1A1;
-  width:100%;
-  width:500px;
+.headertext{
+  font-family: 'Satisfy', cursive;
+  font-size: 40px;
+}
 
+.navbar-brand {
+  font-size: 30px;
+}
+
+
+.headertext i{
+  font-size: 30px;
 }
 
 .container{
