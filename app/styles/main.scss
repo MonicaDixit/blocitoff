@@ -12,9 +12,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 /* Space out content a bit */
 body {
+  padding-top: 20px;
   padding-bottom: 20px;
-  background: url("/images/todo1.jpg");
-  background-position: center;
+  background:url('/images/todo1.jpg');
+  background-position:center;
+
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -68,18 +70,13 @@ body {
   width:500px;
 }
 
-.headertext{
-  font-family: 'Satisfy', cursive;
-  font-size: 40px;
-}
+.header{
+  height:40px;
+  margin:0px;
+  background:#A1A1A1;
+  width:100%;
+  width:500px;
 
-.navbar-brand {
-  font-size: 30px;
-}
-
-
-.headertext i{
-  font-size: 30px;
 }
 
 .container{
@@ -135,9 +132,15 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
-} 
+}
 
-/* Login page css*/
+
+/*
+ * Specific styles of signin component
+ */
+/*
+ * General styles
+ */
 
 .card-container.card {
     width: 350px;
@@ -157,8 +160,8 @@ body {
  * Card component
  */
 .card {
-    background-color: #F7F7F7;
     /* just in case there no content*/
+    background-color: #F7F7F7;
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
     margin-top: 50px;
