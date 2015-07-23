@@ -2,7 +2,7 @@
   "name": "blocitoff",
   "version": "0.0.0",
   "dependencies": {
-    "express": "^4.12.4",
+    "express": "~3.0.0",
     "gzippo": "^0.2.0",
     "morgan": "^1.6.0",
     "hapi": "^7.5.0",
@@ -50,6 +50,6 @@
   },
   "scripts": {
     "test": "grunt test",
-    "start": "node server.js"
+    "start": "node web.js"
   }
 }
